@@ -1,35 +1,58 @@
 #include "../includes/fractol.h"
 
-int	my_key_funct(int keycode, t_case *stock)
+void	fractol_hub(t_case *stk)
 {
-	if (keycode == 53)
-		exit(0);
-	stock->type = 0;
-	return (0);
+	double tp;
+	int x;
+	int y;
+
+	tp = 0.0;
+	x = 0;
+	y = -1;
+	if (stk->type == 0)
+		julia(stk, x, y, tp);
+	if (stk->type == 1)
+		mandelbrot(stk, x, y, tp);
+	if (stk->type == 2)
+		burning_ship(stk, x, y, tp);
+	mlx_put_image_to_window(stk->mlx, stk->win, stk->ptr_ima, 0, 0);
+	ft_bzero(stk->str_ima, WIDTH * HEIGHT * 4);
 }
 
-void	init_mlx(t_case *stock)
+void	init_mlx(t_case *stk)
 {
 	int bpp;
 	int s_l;
 	int endian;
 
-	if (((stock->mlx = mlx_init()) == NULL) ||
-	((stock->win = mlx_new_window(stock->mlx, 1200, 800, "Fractol")) == NULL))
+	if (((stk->mlx = mlx_init()) == NULL) ||
+	((stk->win = mlx_new_window(stk->mlx, WIDTH, HEIGHT, "Fractol"))
+		== NULL))
 		exit(0);
-	stock->ptr_ima = mlx_new_image(stock->mlx, 1200, 800);
-	stock->str_ima = mlx_get_data_addr(stock->ptr_ima, &(bpp), &(s_l), &(endian));
+	stk->ptr_ima = mlx_new_image(stk->mlx, WIDTH, HEIGHT);
+	stk->str_ima = mlx_get_data_addr(stk->ptr_ima, &(bpp), &(s_l),
+		&(endian));
+	stk->ite = 50;
+	stk->x_max = 2;
+	stk->x_min = -2;
+	stk->y_max = 2;
+	stk->y_min = -2;
+	stk->j = 1;
+	stk->color = 1;
 }
 
-int	fractol_type(char *type, t_case *stock)
+int	fractol_type(char *type, t_case *stk)
 {
 	if (ft_strcmp(type, "julia") == 0)
-		stock->type = 0;
+		stk->type = 0;
 	else if (ft_strcmp(type, "mandelbrot") == 0)
-		stock->type = 0;
+		stk->type = 1;
+	else if (ft_strcmp(type, "burningship") == 0)
+		stk->type = 2;
 	else
 	{
-		ft_putendl("Usage : ./fractol \"julia\", \"mandelbrot\"");
+		ft_putstr("Usage : ./fractol \"julia\", \"mandelbrot\", ");
+		ft_putendl("\"burningship\"");
 		return (0);
 	}
 	return (1);
@@ -37,22 +60,25 @@ int	fractol_type(char *type, t_case *stock)
 
 int	main(int argc, char **argv)
 {
-	t_case *stock;
+	t_case	*stk;
+	void	*f;
 
-	if (!(stock = (t_case *)malloc(sizeof(t_case))))
+	f = &(julia_mouse);
+	if (!(stk = (t_case *)malloc(sizeof(t_case))))
 		return(-1);
 	if (argc < 2)
 		ft_putendl("Usage : ./fractol \"julia\", \"mandelbrot\"");
 	else
 	{
-		if (!(fractol_type(argv[1], stock)))
+		if (!(fractol_type(argv[1], stk)))
 			return (0);
-		stock->width = 1200;
-		stock->height = 800;
-		init_mlx(stock);
-		koch(stock);
-		mlx_key_hook(stock->win, my_key_funct, stock);
-		mlx_loop(stock->mlx);
+		init_mlx(stk);
+		fractol_hub(stk);
+		mlx_key_hook(stk->win, my_key_funct, stk);
+		mlx_mouse_hook(stk->win, my_mouse_funct, stk);
+		if (stk->type == 0)
+			mlx_hook(stk->win, 6, 1L << 6, f, stk);
+		mlx_loop(stk->mlx);
 	}
 	return (0);
 }

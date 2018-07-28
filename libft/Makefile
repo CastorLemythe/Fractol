@@ -12,6 +12,7 @@
 
 NAME = libft.a
 SRC = ft_memset.c	\
+	   ft_tab_del.c \
 	   get_next_line.c \
 	   ft_bzero.c	\
 	   ft_memcpy.c	\
