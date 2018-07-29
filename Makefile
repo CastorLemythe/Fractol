@@ -5,6 +5,7 @@ SRC		= main.c \
 		  image.c \
 		  burning_ship.c \
 		  mandelbrot.c \
+		  bathtub.c \
 		  julia.c \
 		  hook.c \
 		  color.c

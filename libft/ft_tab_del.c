@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void	ft_tab_del(char **tab, int size)
+void	ft_tab_del(int **tab, int size)
 {
 	int i;
 

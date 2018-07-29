@@ -2,10 +2,17 @@
 
 int	julia_mouse(int x, int y, t_case *stk)
 {
-	if (stk->j == 1)
+	if (stk->j == 1 && stk->n == 0)
 	{
 		stk->c = (double)x / WIDTH;
 		stk->d = (double)y / HEIGHT;
+		mlx_clear_window(stk->mlx, stk->win);
+		fractol_hub(stk);
+	}
+	else if (stk->j == 1 && stk->n == 1)
+	{
+		stk->c = -(double)x / WIDTH;
+		stk->d = -(double)y / HEIGHT;
 		mlx_clear_window(stk->mlx, stk->win);
 		fractol_hub(stk);
 	}

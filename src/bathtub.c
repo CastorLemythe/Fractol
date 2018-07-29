@@ -1,6 +1,6 @@
 #include "../includes/fractol.h"
 
-void	burning_ship(t_case *stk, int x, int y, double tp)
+void	bathtub(t_case *stk, int x, int y, double tp)
 {
 	int n;
 
@@ -18,9 +18,9 @@ void	burning_ship(t_case *stk, int x, int y, double tp)
 			stk->b = 0;
 			while (++n < stk->ite)
 			{
-				tp = stk->a * stk->a - stk->b * stk->b + stk->c;
-				stk->b = fabs(2 * stk->a * stk->b + stk->d);
-				stk->a = fabs(tp);
+				tp = 2 * stk->a * stk->b + stk->d;
+				stk->a = stk->a * stk->a - stk->b * stk->b + stk->c;
+				stk->b = fabs(tp);
 				if (stk->a * stk->a + stk->b * stk->b >= 4)
 					break;
 			}
