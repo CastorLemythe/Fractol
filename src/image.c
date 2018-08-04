@@ -5,7 +5,7 @@ void	fill_pixel(t_case *stk, int x, int y, int color)
 	unsigned int	blue;
 	unsigned int	green;
 	unsigned int	red;
-	int		coord;
+	int				coord;
 
 	blue = (color & 0xff);
 	green = (color & 0xff00) >> 8;

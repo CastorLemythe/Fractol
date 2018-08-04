@@ -2,9 +2,9 @@
 
 void	fractol_hub(t_case *stk)
 {
-	double tp;
-	int x;
-	int y;
+	double	tp;
+	int		x;
+	int		y;
 
 	tp = 0.0;
 	x = 0;
@@ -23,9 +23,9 @@ void	fractol_hub(t_case *stk)
 
 void	init_mlx(t_case *stk)
 {
-	int bpp;
-	int s_l;
-	int endian;
+	int	bpp;
+	int	s_l;
+	int	endian;
 
 	if ((stk->mlx = mlx_init()) == NULL)
 		exit(0);
@@ -47,7 +47,7 @@ void	init_mlx(t_case *stk)
 	stk->color = 1;
 }
 
-int	fractol_type(char *type, t_case *stk)
+int		fractol_type(char *type, t_case *stk)
 {
 	if (ft_strcmp(type, "julia") == 0)
 		stk->type = 0;
@@ -66,7 +66,7 @@ int	fractol_type(char *type, t_case *stk)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_case	*stk;
 	void	*f;

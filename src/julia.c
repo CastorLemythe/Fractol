@@ -1,6 +1,6 @@
 #include "../includes/fractol.h"
 
-int	julia_mouse(int x, int y, t_case *stk)
+int		julia_mouse(int x, int y, t_case *stk)
 {
 	if (stk->j == 1 && stk->n == 0)
 	{
@@ -21,7 +21,7 @@ int	julia_mouse(int x, int y, t_case *stk)
 
 void	julia(t_case *stk, int x, int y, double tp)
 {
-	int n;
+	int	n;
 
 	while (++y < HEIGHT)
 	{

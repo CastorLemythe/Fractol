@@ -3,7 +3,6 @@
 # include "./../libft/libft.h"
 # include "./../miniLibX/mlx.h"
 # include <math.h>
-# include <stdio.h>
 
 # define WIDTH 1200
 # define HEIGHT 800

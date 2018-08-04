@@ -1,10 +1,10 @@
 #include "../includes/fractol.h"
 
-int	my_mouse_funct(int button, int x, int y, t_case *stk)
+int		my_mouse_funct(int button, int x, int y, t_case *stk)
 {
-	double min_max;
-	double i_x;
-	double i_y;
+	double	min_max;
+	double	i_x;
+	double	i_y;
 
 	if (button == ZOOM || button == DEZOOM)
 	{
@@ -27,7 +27,7 @@ int	my_mouse_funct(int button, int x, int y, t_case *stk)
 	return (0);
 }
 
-int	hook_2(int keycode, t_case *stk)
+int		hook_2(int keycode, t_case *stk)
 {
 	if (keycode == LEFT)
 	{
@@ -54,7 +54,7 @@ int	hook_2(int keycode, t_case *stk)
 	return (0);
 }
 
-int	my_key_funct(int keycode, t_case *stk)
+int		my_key_funct(int keycode, t_case *stk)
 {
 	if (keycode == ESC)
 	{

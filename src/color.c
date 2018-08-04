@@ -1,8 +1,8 @@
 #include "../includes/fractol.h"
 
-int	color_1(int n, int ite)
+int		color_1(int n, int ite)
 {
-	int color;
+	int	color;
 
 	if (n)
 	{
@@ -21,9 +21,9 @@ int	color_1(int n, int ite)
 	return (color);
 }
 
-int	color_2(int n, int ite)
+int		color_2(int n, int ite)
 {
-	int color;
+	int	color;
 
 	if (n)
 	{
@@ -42,9 +42,9 @@ int	color_2(int n, int ite)
 	return (color);
 }
 
-int	color_3(int n, int ite)
+int		color_3(int n, int ite)
 {
-	int color;
+	int	color;
 
 	if (n)
 	{
@@ -63,9 +63,9 @@ int	color_3(int n, int ite)
 	return (color);
 }
 
-int	color(t_case *stk, int n, int ite)
+int		color(t_case *stk, int n, int ite)
 {
-	int color;
+	int	color;
 
 	if (stk->color == 1)
 		color = color_1(n, ite);

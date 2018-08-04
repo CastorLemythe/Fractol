@@ -2,7 +2,7 @@
 
 void	burning_ship(t_case *stk, int x, int y, double tp)
 {
-	int n;
+	int	n;
 
 	while (++y < HEIGHT)
 	{
