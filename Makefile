@@ -5,9 +5,10 @@ SRC		= main.c \
 		  image.c \
 		  burning_ship.c \
 		  mandelbrot.c \
-		  bathtub.c \
+		  mandelbar.c \
 		  julia.c \
 		  hook.c \
+		  commands.c \
 		  color.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))

@@ -49,6 +49,8 @@ int		hook_2(int keycode, t_case *stk)
 		stk->y_min -= ((double)5 / HEIGHT) * (stk->y_max - stk->y_min);
 		stk->y_max -= ((double)5 / HEIGHT) * (stk->y_max - stk->y_min);
 	}
+	if (keycode == L || keycode == M)
+		stk->ite = (keycode == L) ? stk->ite - 10 : stk->ite + 10;
 	mlx_clear_window(stk->mlx, stk->win);
 	fractol_hub(stk);
 	return (0);
@@ -75,6 +77,7 @@ int		my_key_funct(int keycode, t_case *stk)
 	if (keycode == SPACE)
 	{
 		stk->ite = 50;
+		stk->color = 1;
 		stk->x_min = -2;
 		stk->x_max = 2;
 		stk->y_min = -2;

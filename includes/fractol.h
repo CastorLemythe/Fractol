@@ -16,6 +16,8 @@
 # define C 8
 # define J 38
 # define N 45
+# define M 46
+# define L 37
 # define SPACE 49
 
 typedef struct	s_case
@@ -43,8 +45,9 @@ void	fill_pixel(t_case *stk, int x, int y, int color);
 void	mandelbrot(t_case *stk, int x, int y, double tp);
 void	burning_ship(t_case *stk, int x, int y, double tp);
 void	julia(t_case *stk, int x, int y, double tp);
-void	bathtub(t_case *stk, int x, int y, double tp);
+void	mandelbar(t_case *stk, int x, int y, double tp);
 void	fractol_hub(t_case *stk);
+void	commands(t_case *stk);
 int		color(t_case *stk, int n, int ite);
 int		julia_mouse(int x, int y, t_case *stk);
 int		my_mouse_funct(int button, int x, int y, t_case *stk);
