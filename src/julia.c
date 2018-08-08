@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lufranco <lufranco@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/08 14:15:33 by lufranco          #+#    #+#             */
+/*   Updated: 2018/08/08 14:17:25 by lufranco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
 int		julia_mouse(int x, int y, t_case *stk)
@@ -39,7 +51,7 @@ void	julia(t_case *stk, int x, int y, double tp)
 				stk->b = 2 * stk->a * stk->b + stk->d;
 				stk->a = tp;
 				if (stk->a * stk->a + stk->b * stk->b >= 4)
-					break;
+					break ;
 			}
 			if (n != stk->ite)
 				fill_pixel(stk, x, y, color(stk, n, stk->ite));

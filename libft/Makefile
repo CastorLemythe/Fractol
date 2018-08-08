@@ -6,7 +6,7 @@
 #    By: lufranco <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/17 12:32:19 by lufranco          #+#    #+#              #
-#    Updated: 2017/12/26 15:30:36 by lufranco         ###   ########.fr        #
+#    Updated: 2018/08/08 14:13:30 by lufranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ CFLAGS	= -Wall -Wextra -Werror
 
 all: $(NAME)
 
-%.o:%.c
+%.o:%.c libft.h
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)

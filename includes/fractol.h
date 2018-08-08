@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lufranco <lufranco@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/08 14:14:12 by lufranco          #+#    #+#             */
+/*   Updated: 2018/08/08 14:36:26 by lufranco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 # include "./../libft/libft.h"
 # include "./../miniLibX/mlx.h"
 # include <math.h>
+# include <float.h>
 
 # define WIDTH 1200
 # define HEIGHT 800
@@ -41,15 +54,15 @@ typedef struct	s_case
 	double	y_max;
 }				t_case;
 
-void	fill_pixel(t_case *stk, int x, int y, int color);
-void	mandelbrot(t_case *stk, int x, int y, double tp);
-void	burning_ship(t_case *stk, int x, int y, double tp);
-void	julia(t_case *stk, int x, int y, double tp);
-void	mandelbar(t_case *stk, int x, int y, double tp);
-void	fractol_hub(t_case *stk);
-void	commands(t_case *stk);
-int		color(t_case *stk, int n, int ite);
-int		julia_mouse(int x, int y, t_case *stk);
-int		my_mouse_funct(int button, int x, int y, t_case *stk);
-int		my_key_funct(int keycode, t_case *stk);
+void			fill_pixel(t_case *stk, int x, int y, int color);
+void			mandelbrot(t_case *stk, int x, int y, double tp);
+void			burning_ship(t_case *stk, int x, int y, double tp);
+void			julia(t_case *stk, int x, int y, double tp);
+void			mandelbar(t_case *stk, int x, int y, double tp);
+void			fractol_hub(t_case *stk);
+void			commands(t_case *stk);
+int				color(t_case *stk, int n, int ite);
+int				julia_mouse(int x, int y, t_case *stk);
+int				my_mouse_funct(int button, int x, int y, t_case *stk);
+int				my_key_funct(int keycode, t_case *stk);
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   burning_ship.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lufranco <lufranco@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/08 14:15:24 by lufranco          #+#    #+#             */
+/*   Updated: 2018/08/08 14:23:08 by lufranco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
 void	burning_ship(t_case *stk, int x, int y, double tp)
@@ -9,8 +21,7 @@ void	burning_ship(t_case *stk, int x, int y, double tp)
 		x = -1;
 		while (++x < WIDTH)
 		{
-			stk->c = (double)x / WIDTH * (stk->x_max - stk->x_min)
-				+ stk->x_min;
+			stk->c = (double)x / WIDTH * (stk->x_max - stk->x_min) + stk->x_min;
 			stk->d = (double)y / HEIGHT * (stk->y_max - stk->y_min)
 				+ stk->y_min;
 			n = -1;
@@ -22,7 +33,7 @@ void	burning_ship(t_case *stk, int x, int y, double tp)
 				stk->b = fabs(2 * stk->a * stk->b + stk->d);
 				stk->a = fabs(tp);
 				if (stk->a * stk->a + stk->b * stk->b >= 4)
-					break;
+					break ;
 			}
 			if (n != stk->ite)
 				fill_pixel(stk, x, y, color(stk, n, stk->ite));

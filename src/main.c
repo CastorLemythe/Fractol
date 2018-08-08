@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lufranco <lufranco@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/08 14:15:12 by lufranco          #+#    #+#             */
+/*   Updated: 2018/08/08 14:27:03 by lufranco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
 void	draw_v(t_case *stk)
@@ -5,7 +17,7 @@ void	draw_v(t_case *stk)
 	int i;
 
 	i = -1;
-	while(++i < HEIGHT)
+	while (++i < HEIGHT)
 		fill_pixel(stk, WIDTH, i, 0xffffff);
 }
 
@@ -13,6 +25,7 @@ void	fractol_hub(t_case *stk)
 {
 	double	tp;
 	char	*ite;
+	char	*itoa;
 	int		x;
 	int		y;
 
@@ -30,9 +43,11 @@ void	fractol_hub(t_case *stk)
 	draw_v(stk);
 	mlx_put_image_to_window(stk->mlx, stk->win, stk->ptr_ima, 0, 0);
 	ft_bzero(stk->str_ima, (WIDTH + 230) * HEIGHT * 4);
-	ite = ft_strjoin("Iteration = ", ft_itoa(stk->ite));
+	itoa = ft_itoa(stk->ite);
+	ite = ft_strjoin("Iteration = ", itoa);
 	mlx_string_put(stk->mlx, stk->win, 5, 5, 0xffffff, ite);
 	commands(stk);
+	free(itoa);
 	free(ite);
 }
 
@@ -43,7 +58,7 @@ int		init_mlx(t_case *stk)
 	int	endian;
 
 	if ((stk->mlx = mlx_init()) == NULL)
-		return (1);;
+		return (1);
 	if ((stk->win = mlx_new_window(stk->mlx, WIDTH + 230, HEIGHT, "Fractol"))
 		== NULL)
 		return (1);

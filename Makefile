@@ -39,7 +39,7 @@ all: obj $(FT_LIB) $(MLX_LIB) $(NAME)
 obj:
 	mkdir -p $(OBJDIR)
 
-$(OBJDIR)%.o:$(SRCDIR)%.c
+$(OBJDIR)%.o:$(SRCDIR)%.c $(INCDIR) $(FT)/libft.h
 	$(CC) $(CFLAGS) $(MLX_INC) $(FT_INC) -I $(INCDIR) -o $@ -c $<
 
 $(FT_LIB):
